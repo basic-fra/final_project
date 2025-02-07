@@ -1,0 +1,387 @@
+body {
+    background-color: rgb(216, 216, 216);
+}
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: 250px;
+    margin-bottom: 15px;
+}
+.swimming-pool {
+    width: 600px;
+    height: 370px;
+    background-color: #0b9ed9;
+    background-image: linear-gradient(to bottom, #37b9ef 0%, #3eaedc 100%);
+    box-shadow: inset 1px 5px 15px 20px rgba(255, 255, 255, 0.2);
+    border: 20px solid rgb(245, 244, 244);
+    border-radius: 3px;
+}
+h1 {
+    font-size: 40px;
+    color: #f0ec0c;
+    background-color: #37b9ef;
+}
+.home {
+    float: left;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 74px;
+    margin-top: 28px;
+}
+#homeResult {
+    margin: 0px;
+    padding-left: 36px;
+    font-size: 130px;
+    color: #f0ec0c;
+    background-color: #37b9ef;
+    border-radius: 5px;
+}
+.away {
+    float: right;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+    margin-right: 74px;
+} 
+#awayResult {
+    margin: 0px;
+    padding-left: 36px;
+    font-size: 130px;
+    color: #f0ec0c;
+    background-color: #37b9ef;
+    border-radius: 5px;
+}
+#clock {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    margin-right: 25px;
+    margin-left: 25px;
+    border-radius: 10px;
+    color: #f0ec0c;
+    background-color: #37b9ef;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 330px;
+    /* justify-content: space-between; */
+    /* margin-top: 176px; */
+}
+#attack-clock {
+    display: flex;
+    justify-content: center;
+    font-size: 75px;
+    padding: 8px;
+    margin-left: 53px;
+    margin-right: 47px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #f0ec0c;
+    background-color: #37b9ef;
+}
+#period {
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    border-radius: 10px;
+    color: #f0ec0c;
+    background-color: #37b9ef;
+}
+.controlButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #37b9ef;
+    height: 30px;
+}
+.controlButtons > button {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    border: 1px solid black;
+    /* color: #f0ec0c; */
+}
+.buttonControls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: #37b9ef;
+}
+.buttonControls > button {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+.rightCorner {
+    float: right;
+    margin-left: 0px;
+    /* position: fixed; */
+}
+/* .searchID {
+    float: right;
+} */
+.searchID > label, input {
+    margin: 0 auto;   
+}
+.searchID > label {
+    visibility: hidden;
+}
+.searchID > input {
+    visibility: hidden;
+}
+.gkButtons {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 22px;
+    margin-right: 40px;
+    margin-left: 20px;
+}
+.gkButtons > button {
+    /* margin: 0 auto;
+    margin-bottom: 3px;
+    margin-top: 3px; */
+    margin: 8px;
+}
+#homeGoalkeeper {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+}
+/* #homeGoalkeeper > button {
+    margin: 7px;
+    margin-right: 25px;
+    margin-left: 0px;
+} */
+#awayGoalkeeper {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+}
+/* #awayGoalkeeper > button {
+    margin: 7px;
+    margin-right: 25px;
+} */
+.playerButtons {
+    float: left;
+}
+#displayHomeButton {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    justify-content: space-around;
+}
+#displayHomeButton > button {
+    margin: 10px;
+}
+#displayAwayButton {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    justify-content: space-around;
+}
+#displayAwayButton > button {
+    margin: 10px;
+}
+#statButtons{
+    float: right;
+}
+#statButtons > button{
+    margin: 8px;
+}
+
+/* TABLE players */
+.homeLeft {
+    float: left;
+    margin: 15px;
+    margin-top: 55px;
+}  
+.playerInput {
+    display: flex;
+    justify-content: center; 
+    height: 25px;
+    background-color: rgb(180, 180, 180);
+    padding: 6px;
+    border-radius: 5px;
+}
+.playerInput > button {
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    background-color:rgb(77 122 148);
+    margin-left: 6px;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+.playerInput > button:hover {
+    background-color:rgb(158, 154, 154);
+}
+#nameHome,#nameAway{
+    margin-right: 10px;
+}
+table th {
+    border: 2px solid black;
+    color: black;
+    background-color:rgb(115, 111, 111);
+    padding: 4px;
+}
+table, td, th {
+    border: 1px solid;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td {
+  font-weight: bold;
+  height: 25px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: rgb(190, 190, 190);
+}
+.awayRight {
+    float: right;
+    margin: 15px;
+    margin-top: 55px;
+}
+#myTableHome,#myTableAway {
+    margin-top: -19px;
+}
+/* manipulating data */
+.dataControl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.dataControl > button {
+    margin: 0 auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.conditions {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 250px;
+    background-color: rgb(190, 190, 190);
+}
+#stanja > span {
+    margin-left: 3px;
+}
+#stateDisplay {
+    visibility: hidden;
+}
+
+/*--- tooltip on hover---- */
+/* .tooltip {
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+  
+.tooltip::after {
+    content: '';
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #f9f9f9 transparent;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+.tooltip.fade-out {
+    opacity: 0;
+} */
+/*--- tooltip on hover---- */
+#idGkHome, #idGkAway {
+    width: 50px;
+}
+#idPlayerHome , #idPlayerAway {
+    width: 50px;
+}
+#idPlayerAway {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#nameAway {
+    margin-left: 10px;
+}
+#savePlayers{
+    color: black;
+    height: 30px;
+    background-color:rgb(131, 119, 119);
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px solid black;
+}
+#savePlayers:hover {
+    color: rgb(20, 20, 20);
+    height: 30px;
+    background-color:rgb(173, 164, 164);
+    border-radius: 10px;
+    border: 2px solid rgb(20, 20, 20);
+}
+#backData{
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: rgb(224, 224, 224);
+    height: 30px;
+    font-weight: bold;
+}
+#backData:hover{
+    background-color: rgb(189, 189, 189);;
+}
+#deleteData {
+    color:white;
+    background-color: red;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    height: 27px;
+    width: 100px;
+    font-weight: bold;
+}
+#deleteData:hover {
+    background-color: rgb(168, 23, 23);
+    border: 2px solid rgb(136, 2, 2);
+}
+#exportBtn {
+    border: 3px solid rgb(19, 102, 38);
+    background-color: rgb(90, 169, 109);
+    font-weight: bold;
+    height: 30px;
+    border-radius: 7px;
+}
+#exportBtn:hover {
+    border: 3px solid rgb(27, 65, 35);
+    background-color: rgb(127, 205, 145);
+}

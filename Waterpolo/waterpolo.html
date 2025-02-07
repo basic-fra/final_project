@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="waterpolo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <title>SPORTi</title>
+</head>
+<body>
+    <div class="playerButtons">
+        <div id="displayHomeButton"></div>
+        <div id="displayAwayButton"></div>
+        <div id="statButtons">
+            <button type="button" onclick="Goal()">Goal</button><br> <!--onclick="addThree_2()"-->
+            <button type="button" onclick="ShootFG()">shoot fg</button><br>
+            <button type="button" onclick="ShootW1()">shoot w+1</button><br>
+            <button type="button" onclick="ShootFC()">shoot fc</button><br>
+            <button type="button" onclick="Shoot5()">5 m</button> <br>
+            <button type="button" onclick="Foul()">foul</button> <br>
+            <button type="button" onclick="Turnover()">turnover</button> <br>
+            <button type="button" onclick="Block()">block</button><br>
+            <button type="button" onclick="SW()">sw</button><br>
+            <button type="button" onclick="SL()">sl</button><br>
+          </div>
+    </div>
+    
+    <div class="rightCorner">
+      <div class="searchID">
+          <label for="find_id">search ID:</label>
+          <input type="text" id="find_id" name="find_id">
+        </div>   
+        <div class="gkButtons">
+          <button onclick="DFG()">DFG</button>
+          <button onclick="DWPM()">DWPM</button>
+          <button onclick="DFC()">DFC</button>
+          <button onclick="D5()">D5</button>
+        </div>
+        
+      <div id="homeGoalkeeper"></div>
+      <div id="awayGoalkeeper"></div>
+      
+    </div>
+
+    <div class="container">
+         <div class="swimming-pool">
+
+            <div class="home">
+                <h1>HOME</h1>
+                <p id="homeResult">0</p>
+            </div>
+
+            <div class="away">
+                <h1>AWAY</h1>
+                <p id="awayResult">0</p>
+            </div>
+
+            <div class="controls">
+
+                <div id="clock">
+                    <span class="count-digit">0</span>
+                    <span class="count-digit">8</span>
+                    <span class="separator">:</span>
+                    <span class="count-digit">0</span>
+                    <span class="count-digit">0</span>
+                </div>
+
+                <div id="period">period: <span id="cycle">1</span></div>
+                <div id="attack-clock">30</div>
+
+                <div class="controlButtons">
+                    <button id="start" onclick="startTimer() ; startClock_A() ; startButtonClicked()" ><i class="fa fa-play"></i></button>
+                    <button id="stop" onclick="stopTimer() ; stopClock_A() ; pauseButtonClicked()"><i class="fa fa-pause"></i></button>
+                    <button onclick="increaseSecond()">+</button>
+                    <button onclick="decreaseSecond()">-</button>
+                </div>
+
+                <div class="buttonControls">
+                    <button id="reset" onclick="resetTimer()">8</button>
+                    <button onclick="secondPlus()">+</button>
+                    <button onclick="secondMinus()">-</button>
+                    <button onclick="restartClock_A20()">20</button>
+                    <button onclick="restartClock_A()">30</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TABLE HOME -->
+    <div class="homeLeft">
+        <div class="playerInput">
+          <label for="nameHome">Name:</label>
+          <input type="text" id="nameHome" name="name" autofocus autocomplete="given-name">
+          <label for="idPlayerHome">Player number:</label>
+          <input type="text" id="idPlayerHome" name="idPlayer" oninput="removeHomeSpaces()">
+          <button id="homeInputPlayer" type="button" onclick="handleHomeInputs() "> Add player </button> <!--onclick="editTable_2() ; homeRequired() ; ispis()"-->
+        </div>
+        <br>
+        <form>
+          <table id="myTableHome">
+            <tr id="myRow">
+                <th>Number</th>
+                <th>Name</th>
+                <th>Goal</th>
+                <th id="cell3">SFG</th>
+                <th>SWPM</th>
+                <th>SFC</th>
+                <th>S5</th>
+                <th>PF</th>
+                <th>TO</th>
+                <th>BL</th>
+                <th>SW</th>
+                <th>SL</th>
+                <th>Options</th>
+            </tr> 
+          </table>
+          <br>
+          <div class="playerInput">
+            <label for="gkHome">Name:</label>
+              <input type="text" id="gkHome" name="name" autofocus autocomplete="given-name">
+            <label id="gkNumber" for="idGkHome">Player number:</label>
+              <input type="text" id="idGkHome" name="idPlayer" oninput="removeHomeSpaces()">
+            <button id="homeInputGk" type="button" onclick="homeGkInputs() "> Add goalkeeper </button>
+          </div>
+          <table id="goalkeeperHome">
+            <tr id="rowGH">
+                <th>Number</th>
+                <th>Name</th>
+                <th>Def</th>
+                <th>DFG</th>
+                <th>DWPM</th>
+                <th>DFC</th>
+                <th>D5</th>
+                <th>Options</th>
+            </tr> 
+          </table>
+        </form>
+    </div>
+    
+
+    <!-- TABLE AWAY -->
+    <div class="awayRight">
+        <div class="playerInput">
+          <label for="nameAway">Name:</label>
+          <input type="text" id="nameAway" name="name" autocomplete="given-name"><br><br>
+          <label for="idPlayerAway">Player number:</label>
+          <input type="text" id="idPlayerAway" name="idPlayer" oninput="removeGuestSpaces()">
+          <button id="awayInputPlayer" type="button" onclick="handleAwayInputs() ">Add player</button><!--;editTableAway() createButtonAway()-->
+        </div>
+        <br>
+        <form>
+          <table id="myTableAway">
+            <tr id="myRowAway">
+                <th>Number</th>
+                <th>Name</th>
+                <th>Goal</th>
+                <th>SFG</th>
+                <th>SWPM</th>
+                <th>SFC</th>
+                <th>S5</th>
+                <th>PF</th>
+                <th>TO</th>
+                <th>BL</th>
+                <th>SW</th>
+                <th>SL</th>
+                <th>Options</th>
+            </tr> 
+          </table>
+          <br>
+          <div class="playerInput">
+            <label for="gkAway">Name:</label>
+              <input type="text" id="gkAway" name="name" autofocus autocomplete="given-name">
+            <label for="idGkAway">Player number:</label>
+              <input type="text" id="idGkAway" name="idPlayer" oninput="removeHomeSpaces()">
+            <button id="awayInputGk" type="button" onclick="awayGkInputs() "> Add goalkeeper </button>
+          </div>
+          <table id="goalkeeperAway">
+            <tr id="rowGA">
+                <th>Number</th>
+                <th>Name</th>
+                <th>Def</th>
+                <th>DFG</th>
+                <th>DWPM</th>
+                <th>DFC</th>
+                <th>D5</th>
+                <th>Options</th>
+            </tr> 
+          </table>
+        </form>
+    </div> 
+
+    <div class="dataControl">
+      <!-- <div> -->
+        <div class="conditions" style="height: 120px; width: 260px; overflow: auto; border: 1px solid black;">
+          <div id="stanja"></div>
+          <hr>
+        </div>
+        
+      <!-- </div> -->
+        <br>
+      <!-----STANJA-->
+      <div id="stateDisplay"></div>
+
+        <button id="savePlayers" onclick="Hidden()">Save players</button>
+        <button id="backData" onclick="retrieveData()">Retrieve data <i class="fa fa-refresh"></i></button>
+        <button id="deleteData" onclick="deleteData()">Delete data</button>
+        <button id="exportBtn">Export to Excel</button>
+    </div>
+      <!--JS connection-->   
+<script src="waterpolo.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</body>
+</html>

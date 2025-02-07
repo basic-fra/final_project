@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./football.css">
+    <title>SPORTi</title>
+</head>
+<body>
+    <!-- player buttons -->
+    <div class="playerButtons">
+        <div id="displayHomeButton"></div>
+        <div id="displayAwayButton"></div>
+        <div id="statButtons">
+            <button type="button" onclick="Goal()">Goal</button> <br>
+            <button type="button" onclick="correctPass()">Correct pass</button> <br>
+            <button type="button" onclick="wrongPass()">Wrong pass</button> <br>
+            <button type="button" onclick="Asisst()">Asisst</button> <br>
+            <button type="button" onclick="Foul()">Foul</button><br>
+            <button type="button" onclick="yellowCard()">yellow card</button><br>
+            <button type="button" onclick="redCard()">red card</button><br>
+            <button type="button" onclick="Corner()">Corner</button><br>
+          </div>
+    </div>
+    <!-- goalkeeper buttons -->
+    <div class="rightCorner">
+        <!-- <div class="searchID">
+            <label for="find_id">search ID:</label>
+            <input type="text" id="find_id" name="find_id">
+          </div>    -->
+          <div class="gkButtons">
+            <button onclick="DFG()">DFG</button>
+            <button onclick="DFC()">DFC</button>
+            <button onclick="D11()">D11</button>
+          </div>
+          
+        <div id="homeGoalkeeper"></div>
+        <div id="awayGoalkeeper"></div>
+        
+      </div>
+
+    <!-- CONTAINER -->
+    <div class="container">
+        <div id="matchTime">00:00</div>
+        <div class="home">
+            <h1>HOME</h1>
+            <p id="home-result">0</p>
+            <p id="cornerHome">Corner: <span id="homeNcorner">0</span></p>
+        </div>
+        <div class="away">
+            <h1>AWAY</h1>
+            <p id="away-result">0</p>
+            <p id="cornerAway">Corner: <span id="awayNcorner">0</span></p>
+        </div>
+        <div class="conditions" style="height: 100px; width: 174px; overflow: auto;">
+            <div id="stanja"></div>
+            <hr>
+        </div>
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="stop">Pause</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <!-- TABLE HOME -->
+    <br>
+    <div class="homeLeft">
+        <div class="playerInput">
+            <label for="gkHome">Name:</label>
+              <input type="text" id="gkHome" name="name" autofocus autocomplete="given-name">
+            <label id="gkNumber" for="idGkHome">Jersey number:</label>
+              <input type="text" id="idGkHome" name="idPlayer" oninput="removeHome(this)">
+            <button id="homeInputGk" type="button" onclick="homeGkInputs() "> Add goalkeeper </button>
+          </div>
+          <table id="goalkeeperHome">
+            <tr id="rowGH">
+                <th>Number</th>
+                <th>Name</th>
+                <th>Def</th>
+                <th>DFG</th>
+                <th>DFC</th>
+                <th>D11</th>
+                <th>Options</th>
+            </tr> 
+          </table>
+          <br>
+        <div class="playerInputHome">
+            <label for="nameHome" id="homeName">Name:</label>
+            <input type="text" name="nameHome" id="nameHome">
+            <label for="idPlayerHome" id="homeID">Jersey number:</label>
+            <input type="text" name="idPlayerHome" id="idPlayerHome" oninput="removeHome(this)">
+            <button id="homeInputPlayer" type="button" onclick="homeInputs()">Add player</button>
+        </div>
+        <br>
+        <form>
+            <table id="homeTable">
+                <tr id="homeRow">
+                    <th>Jersey</th>
+                    <th>Name</th>
+                    <th>Goal</th>
+                    <th>Cpass</th>
+                    <th>Wpass</th>
+                    <th>Asisst</th>
+                    <th>Foul</th>
+                    <th>Yellow</th> <!--<span  style="font-size: 20px; color: yellow;">&#9632;</span> -->
+                    <th>Red</th> <!--<span  style="font-size: 20px; color: red;">&#9632;</span>-->
+                    <th>Option</th>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <!-- TABLE AWAY -->
+    <div class="awayRight">
+        <div class="playerInput">
+            <label for="gkAway">Name:</label>
+              <input type="text" id="gkAway" name="name" autofocus autocomplete="given-name">
+            <label for="idGkAway" id="awayID">Jersey number:</label>
+              <input type="text" id="idGkAway" name="idPlayer" oninput="removeHome(this)">
+            <button id="awayInputGk" type="button" onclick="awayGkInputs() "> Add goalkeeper </button>
+          </div>
+          <table id="goalkeeperAway">
+            <tr id="rowGA">
+                <th>Number</th>
+                <th>Name</th>
+                <th>Def</th>
+                <th>DFG</th>
+                <th>DFC</th>
+                <th>D11</th>
+                <th>Options</th>
+            </tr> 
+          </table>
+          <br>
+        <div class="playerInputAway">
+            <label for="nameAway" id="awayName">Name:</label>
+            <input type="text" name="nameAway" id="nameAway">
+            <label for="idPlayerAway" id="awayID">Jersey number:</label>
+            <input type="text" name="idPlayerAway" id="idPlayerAway" oninput="removeAway(this)">
+            <button id="awayInputPlayer" type="button" onclick="awayInputs()">Add player</button>
+        </div>
+        <br>
+        <form>
+            <table id="awayTable">
+                <tr id="awayRow">
+                    <th>Jersey</th>
+                    <th>Name</th>
+                    <th>Goal</th>
+                    <th>Cpass</th>
+                    <th>Wpass</th>
+                    <th>Asisst</th>
+                    <th>Foul</th>
+                    <th>Yellow</th>
+                    <th>Red</th>
+                    <th>Option</th>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!-- states -->
+    <!-- <div class="conditions" style="height: 120px; width: 300px; overflow: auto;">
+        <div id="stanja"></div>
+        <hr>
+    </div> -->
+    <!-----STANJA-->
+    <div id="stateDisplay"></div>
+    <!-- search ID -->
+    <div class="searchID">
+        <label for="find_id">search ID:</label>
+        <input type="text" id="find_id" name="search player">
+    </div>
+    <br>
+    <!-- save players -->
+    <div class="savePlayers"> 
+        <button id="saveTablePlayers" onclick="Hide()">Save players</button>
+    </div>
+    <br>
+    <div class="erase">
+        <button onclick="Delete()"> Delete <i class="fa fa-trash-o"></i></button> 
+    </div>
+    <br>
+    <div class="retrieve">
+        <button id="backData" onclick="retrieveData()">Retrieve data <i class="fa fa-refresh"></i></button>
+    </div>
+    <br>
+    <div class="export">
+        <button id="exportBtn">Export to Excel</button>
+    </div>
+    <br>
+    
+
+<!--JS connection-->   
+<script src="football.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+#displayHomeButton {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    justify-content: space-around;
+}
+#displayHomeButton > button {
+    margin: 10px;
+}
+#displayAwayButton {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    justify-content: space-around;
+}
+#displayAwayButton > button {
+    margin: 10px;
+}
+.playerButtons {
+    float: left;
+}
+#statButtons{
+    float: right;
+}
+#statButtons > button{
+    margin: 10px;
+}
+.searchID {
+    display: flex;
+    justify-content: center;
+    margin-top: -7px;
+}
+.searchID > label , #stateDisplay {
+    visibility: hidden;
+}
+.searchID > input {
+    visibility: hidden;
+}
+.savePlayers,.erase,.retrieve, .export{
+    display: flex;
+    justify-content: center;
+}
+.savePlayers > button {
+    border: 2px solid rgb(14, 1, 131);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(33, 66, 214);
+    height: 27px;
+    width: 106px;
+}
+.savePlayers > button:hover {
+    border: 2px solid rgb(9, 2, 71);
+    background-color: rgb(17, 40, 142);
+}
+.erase > button {
+    color:white;
+    background-color: red;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    height: 27px;
+    width: 80px;
+    font-weight: bold;
+}
+.erase > button:hover {
+    background-color: rgb(168, 23, 23);
+    border: 2px solid rgb(136, 2, 2);
+}
+.retrieve > button {
+    color:rgb(0, 0, 0);
+    background-color: rgb(207, 203, 203);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    height: 37px;
+    width: 100px;
+    font-weight: bold;
+}
+.retrieve > button:hover {
+    background-color: rgb(164, 164, 164);
+}
+.export > button {
+    border: 3px solid rgb(19, 102, 38);
+    background-color: rgb(90, 169, 109);
+    font-weight: bold;
+    height: 30px;
+    border-radius: 7px;
+}
+.export > button:hover {
+    border: 3px solid rgb(27, 65, 35);
+    background-color: rgb(127, 205, 145);
+}
+.container{
+    margin: 0 auto;
+    padding: 33px 30px 4px;
+    height: 400px;
+    width: 600px;
+    background-image: linear-gradient(rgb(25, 26, 87), rgb(20, 60, 234));
+    /* background-color: rgb(34, 34, 206); rgb(78, 65, 198);*/
+    border: 6px solid rgb(60, 49, 158);
+    border-radius: 10px;
+}
+
+.home{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    margin-right: 0px;
+    /* margin: 0px 70px; */
+    display: flex;
+    flex-direction: column;
+    float: left;
+} 
+.home > h1 , .away > h1 {
+    font-size: 45px;
+}
+.away{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 40px;
+    /* margin: 0px 70px; */
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+h1{
+    color: rgb(208, 206, 206);
+    margin-bottom: 5px;
+}
+p{
+    color: rgb(255, 255, 255);
+}
+#home-result,#away-result{
+    font-size: 150px;
+    margin: 0 auto;
+}
+#cornerHome,#cornerAway{
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+#matchTime{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    width: 150px;
+    margin: 0 auto ;
+    color: white;
+}
+.controls {
+    display: flex; 
+    justify-content: center;
+     margin-top: 62px; 
+    margin-left: 12px;
+}
+.controls > button {
+    border: 2px solid rgb(60, 49, 158);
+    border-radius: 10px;
+    height: 30px;
+    width: 60px;
+    font-weight: bold;
+    color: rgba(35, 34, 34, 0.847);
+    margin-right: 2px;
+}
+.controls > button:hover {
+    border: 2px solid rgb(41, 27, 165);
+    color: rgb(10, 10, 10);
+    background-color: rgb(190, 194, 199);
+}
+/* .conditions {
+    margin-left: 610px; 
+} */
+.conditions {
+    margin-left: 218px; 
+    margin-top: 135px;
+    margin-bottom: 30px;
+}
+#stanja {
+    background-color: rgb(16, 1, 150);
+} 
+#stanja > span {
+    color: white;
+    font-size: 15px;
+}
+/* INPUT GOALKEEPERS */
+.playerInput {
+    display: flex;
+    justify-content: center; 
+    height: 25px;
+    background-color: rgb(180, 180, 180);
+    padding: 10px;
+    border-radius: 5px;
+}
+.playerInput > button {
+    margin-left: 30px;
+    border: 2px solid rgb(14, 1, 131);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(33, 66, 214);
+}
+
+.playerInput > button:hover {
+    border: 2px solid rgb(9, 2, 71);
+    background-color: rgb(17, 40, 142);
+}
+
+.playerInputHome,.playerInputAway {
+    display: flex;
+    justify-content: center;
+    height: 25px;
+    background-color: rgb(180, 180, 180);
+    padding: 10px;
+    border-radius: 5px;
+}
+#gkHome,#idGkHome,#idGkAway,#gkAway {
+    margin-left: 5px;
+}
+#gkNumber {
+    margin-left: 15px;
+}
+#idGkHome, #idGkAway {
+    width: 50px;
+}
+.rightCorner {
+    float: right;
+    margin-left: 0px;
+}
+.gkButtons {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 22px;
+    margin-right: 40px;
+    margin-left: 20px;
+}
+.gkButtons > button {
+    margin: 8px;
+}
+#homeGoalkeeper {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+}
+#awayGoalkeeper {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+}
+/* INPUT players */
+#homeInputPlayer,#awayInputPlayer {
+    border: 2px solid rgb(14, 1, 131);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(33, 66, 214);
+    height: 25px;
+    width: 96px;
+    margin-left: 30px;
+}
+#homeInputPlayer:hover {
+    border: 2px solid rgb(9, 2, 71);
+    background-color: rgb(17, 40, 142);
+}
+#awayInputPlayer:hover {
+    border: 2px solid rgb(9, 2, 71);
+    background-color: rgb(17, 40, 142);
+}
+#idPlayerHome, #idPlayerAway{
+    width: 50px;
+    margin-left: 5px;
+}
+#nameHome,#nameAway {
+    margin-left: 5px;
+}
+#homeID,#awayID {
+    margin-left: 15px;
+}
+/* TABLES */
+.homeLeft {
+    float: left;
+    margin: 15px;
+    margin-left: 30px;
+}
+.awayRight {
+    float: right;
+    margin: 15px;
+    margin-right: 30px;
+}
+table th {
+    border: 2px solid black;
+    color: rgb(255, 255, 255);;
+    background-color:rgb(41, 27, 165);
+}
+table, td, th {
+    border: 1px solid;
+  }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: -3px;
+}
+td {
+    font-weight: bold;
+    height: 25px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: rgb(208, 206, 206);
+}
+td > button {
+    border: 2px solid red;
+    border-radius: 5px;
+    background-color: rgb(255, 158, 158);
+}
+td > button:hover {
+    background-color: rgb(157, 156, 156);
+    color: red;
+}  
+#homeTable,#awayTable{
+    margin-top: -22px;
+} 

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="basketball.css">
+    <link href="https://fonts.cdnfonts.com/css/alarm-clock" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <title>SPORTi</title>
+</head>
+
+<body>
+  <div class="playerButtons">
+    <div id="displayPlayerButton"></div>
+    <div id="displayAwayButtons"></div>
+    <div id="statButtons">
+      <button type="button" id="3pts_2">3pts made</button><br> <!--onclick="addThree_2()"-->
+      <button type="button" onclick="shootThree()">3pts missed</button><br>
+      <button type="button" onclick="addTwo_2()">2 pts made</button><br> <!--id="3pts_2"-->
+      <button type="button" onclick="shootTwo()">2pts missed</button><br>
+      <button type="button" onclick="FTmade()">FT made</button> <br>
+      <button type="button" onclick="addFT()">FThrow +1</button> <br>
+      <button type="button" onclick="Asisst()">asisst</button> <br>
+      <button type="button" onclick="Rebound()">rebound</button><br>
+      <button type="button" onclick="Steal()">steal</button><br>
+      <button type="button" onclick="TurnOver()">turnover</button><br>
+      <button type="button" onclick="detectFoulHome() ; stopTimer(); stopClock_A(); pauseButtonClicked()" >Foul H</button> <br>
+      <button type="button" onclick="detectFoulAway() ; stopTimer(); stopClock_A(); pauseButtonClicked()" >Foul A</button> <br>
+    </div>
+  </div>
+
+  <div class="searchID">
+    <label for="find_id">search ID:</label>
+    <input type="text" id="find_id" name="search player">
+      <br>
+  </div>
+
+  <div class="container">
+    <div class="home">
+      <h1>HOME</h1>
+      <button id="home-btn">0</button>
+        <div class="operate">
+          <p id="dot1"></p>
+          <p id="dot2"></p>
+          <p id="dot3"></p>
+          <p id="dot4"></p>
+          <p id="dot5"></p>
+        </div>
+        <div class="resetFoulHome">
+          <button onclick="foulResetHome()">Reset fouls</button>
+        </div>
+    </div>
+    
+    <div class="attackClock"> 
+      <!-- quarter -->
+    <div class="time-quarter">
+      <span class="count-digit">1</span>
+      <span class="count-digit">0</span>
+      <span class="separator">:</span>
+      <span class="count-digit">0</span>
+      <span class="count-digit">0</span>
+    </div>
+   
+    <div class="gamePeriod">
+      <p>PERIOD: <span id="period" style="font-weight: bold;">1</span></p> 
+    </div>
+
+    <div id="attack-clock">24</div>
+
+    <div class="timeButtons">
+      <button onclick="startTimer() ; startClock_A() ; startButtonClicked() ; saveMS()" id="start-button"><i class="fa fa-play"></i></button>
+      <button onclick="stopTimer() ; stopClock_A() ; pauseButtonClicked()" id="stop-button"><i class="fa fa-pause"></i></button>
+      <button onclick="decreaseSecond()" id="decrease-button"><i class="fa fa-minus"></i></button>
+      <button onclick="increaseSecond()" id="increase-button"><i class="fa fa-plus"></i></button>
+    </div>
+
+      <div class="timeButtons">
+        <button onclick="restartClock_A()" id="restart-attack">R</button>
+        <button onclick="restartClock_14()" id="split-attack">14</button>
+        <button onclick="secondMinus()" id="minus-attack"><i class="fa fa-minus"></i></button>
+        <button onclick="secondPlus()" id="plus-attack"><i class="fa fa-plus"></i></button>
+      </div>
+    </div>
+   
+    <div class="guest">
+      <h1>AWAY</h1>
+      <button id="guest-btn">0</button>
+      <div class="operate">
+        <p id="circleAway1"></p>
+        <p id="circleAway2"></p>
+        <p id="circleAway3"></p>
+        <p id="circleAway4"></p>
+        <p id="circleAway5"></p>
+      </div>
+      <div class="resetFoulGuest">
+        <button onclick="foulResetGuest()">Reset fouls</button>
+      </div>
+    </div>
+  </div>
+  <!-- stavljanje u div pocetak -->
+  <!-- <div class="frane-proba"> -->
+  <!-----------DISPLAY TABLE PLAYERS--------->
+  <div>
+    <div class="conditions" style="height: 120px; width: 260px; overflow: auto;">
+      <div id="stanja"></div>
+      <hr>
+    </div>
+    
+  </div>
+    <br>
+  <!-----STANJA-->
+  <div id="stateDisplay"></div>
+  <!-----STANJA-->
+  
+  <div class="manage"> 
+    <button id="savePlayers" onclick="Hidden()">Save players</button>
+    <br>
+    <button id="backData" onclick="retrieveData()">Retrieve data <i class="fa fa-refresh"></i></button> 
+    <br>
+    <button id="deleteData" onclick="deleteData()">Delete data</button> 
+    <br>
+    <button id="exportBtn">Export to Excel</button>
+  </div> 
+
+  <!-- <button id="savePlayers" onclick="saveTablePlayers() ; deleteLastColumn() ; saveHomeButtons()">Save players</button>  -->
+  <br>
+  <!-- <button onclick="exToEx()">Export</button> -->
+  <br>
+  
+  <!--displaying states-->
+  <div class="homeLeft">
+    <div class="playerInput">
+      <label for="name_2">Name:</label>
+      <input type="text" id="name_2" name="name" autofocus autocomplete="given-name">
+      <label for="idPlayer_2">Jersey number:</label>
+      <input type="text" id="idPlayer_2" name="idPlayer" oninput="removeHome(this)">
+      <button id="homeInputPlayer" type="button" onclick="handleHomeInputs() " >Add player</button> <!--onclick="editTable_2() ; homeRequired() ; ispis()"-->
+    </div>
+<br>
+  <form>
+  <table id="myTable_2">
+    <tr id="myRow">
+      <th>Jersey</th>
+      <th>Name</th>
+      <th>Pts</th>
+      <th>PM3</th>
+      <th>P3</th>
+      <th>PM2</th>
+      <th>P2</th>
+      <th>FTM</th>
+      <th>FT</th>
+      <th>AS</th>
+      <th>RB</th>
+      <th>ST</th>
+      <th>TO</th>
+      <th>PF</th>
+      <th>Options</th>
+    </tr> 
+  </table>
+  </form>
+  <!-- <div class="excelHome">
+    <button onclick="exportToExcel('myTable_2','game stats')">Export to excel</button>
+  </div> -->
+</div>
+<!-- POCETAK -->
+
+<div class="awayRight">
+  <div class="playerInput">
+    <label for="name_away">Name:</label>
+    <input type="text" id="name_away" name="name" autocomplete="given-name"><br><br>
+    <label for="idPlayer_away">Jersey number:</label>
+    <input type="text" id="idPlayer_away" name="idPlayer" oninput="removeAway(this)">
+    <button id="awayInputPlayer" type="button" onclick="handleAwayInputs() ">Add player</button><!--;editTableAway() createButtonAway()-->
+</div>
+<br>
+  <form>
+  <table id="myTableAway">
+    <tr id="myRowAway">
+      <th>Jersey</th>
+      <th>Name</th>
+      <th>Pts</th>
+      <th>PM3</th>
+      <th>P3</th>
+      <th>PM2</th>
+      <th>P2</th>
+      <th>FTM</th>
+      <th>FT</th>
+      <th>AS</th>
+      <th>RB</th>
+      <th>ST</th>
+      <th>TO</th>
+      <th>PF</th>
+      <th>Options</th>
+    </tr> 
+  </table>
+  </form>
+  <!-- <div class="excelAway">
+    <button onclick="exportExcelAway('myTableAway','game stats')">Export to excel</button>
+  </div> -->
+</div> 
+<!-- stavljanje u div kraj -->
+</div>
+<!-- KRAJ -->
+<!--JS connection-->   
+<script src="basketball.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+</body>
+</html>
