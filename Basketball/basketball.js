@@ -23,8 +23,6 @@ function foulResetGuest() {
 // removing space from input field
 function removeHome(inputField) {
   inputField.value = inputField.value.replace(/\D/g, '');
-  // let noSpaceHome = document.getElementById("idPlayer_2");
-  // noSpaceHome.value = noSpaceHome.value.replace(/\s+/g, "");
 }
 function removeAway(inputField) {
   inputField.value = inputField.value.replace(/\D/g, '');
@@ -50,8 +48,6 @@ function editTableAway() {
   const tableAway = document.getElementById("myTableAway");
 
   let poeni = 0;
-  //const table = document.getElementById("myTable_2");
-  //const p_id = document.getElementById('idPlayer_2').value;
   // locate the row to edit based on the id value
   let rowToEditAway = -1;
   for (let i = 1; i < tableAway.rows.length; i++) {
@@ -133,90 +129,6 @@ function editTableAway() {
     }
 }
 
-// function createButton() {
-//   let playerButton = document.createElement("button");
-//   playerButton.innerText = document.getElementById('idPlayer_2').value;
-//   let displayPB = document.getElementById("displayPlayerButton");
-//   playerButton.addEventListener("click",function(){
-//     IDinput(playerButton);
-//   });
-//   displayPB.appendChild(playerButton);
-  
-//   }
-// function IDinput(playerButton){
-//     document.getElementById("find_id").value = playerButton.innerText;
-//   } 
-
-
-// function createButtonAway() {
-//   let awayButton = document.createElement("button");
-//   awayButton.innerText = document.getElementById('idPlayer_away').value;
-//   let displayPbAway = document.getElementById("displayAwayButtons");
-//   awayButton.addEventListener("click",function(){
-//     IDawayInput(awayButton);
-//   })
-//   displayPbAway.appendChild(awayButton);
-// }
-
-// function IDawayInput(awayButton){
-//   document.getElementById("find_id").value = awayButton.innerText;
-// }
-
-//remove space
-// const inputName = document.getElementById("name_2");
-//   inputName.addEventListener("blur", () => {
-//     const value = inputName.value.trim();
-
-//     if (value.charAt(0) === " ") {
-//       inputName.value = value.substring(1);
-//     }
-//   });
-
-//   const inputID = document.getElementById("idPlayer_2");
-//   inputID.addEventListener("blur", () => {
-//     const value = inputID.value.trim();
-
-//     if (value.charAt(0) === " ") {
-//       inputID.value = value.substring(1);
-//     }
-//   });
-//remove space
-
-//SAVING HOME PLAYERS TO LOCAL STORAGE:
-// Get a reference to the table element
-// const homeTable = document.getElementById("myTable_2");
-// Create an array to hold the data
-// const dataHomePlayers = [];
-// Iterate through the rows of the table
-// for (let i = 0; i < homeTable.rows.length; i++) {
-  // Get a reference to the current row
-  // const rowPlayer = homeTable.rows[i];
-  // Create an object to hold the data from the row
-  // const rowDataHome = {
-  //   jersey: rowPlayer.cells[0].textContent,
-  //   name: rowPlayer.cells[1].textContent,
-  //   points: parseInt(rowPlayer.cells[2].textContent),
-  //   three_points_made: parseInt(rowPlayer.cells[3].textContent),
-  //   three_points: parseInt(rowPlayer.cells[4].textContent),
-  //   two_points_made: parseInt(rowPlayer.cells[5].textContent),
-  //   two_points: parseInt(rowPlayer.cells[6].textContent),
-  //   freeThrow_made: parseInt(rowPlayer.cells[7].textContent),
-  //   freeThrow: parseInt(rowPlayer.cells[8].textContent),
-  //   asisst: parseInt(rowPlayer.cells[9].textContent),
-  //   rebound: parseInt(rowPlayer.cells[10].textContent),
-  //   steal: parseInt(rowPlayer.cells[11].textContent),
-  //   turnOver: parseInt(rowPlayer.cells[12].textContent),
-  //   personalFoul: parseInt(rowPlayer.cells[13].textContent),
-  // };
-  // Add the object to the data array
-//   dataHomePlayers.push(rowDataHome);
-// }
-// Convert the data array to a JSON string
-// const jsonString = JSON.stringify(dataHomePlayers);
-// Save the JSON string to local storage
-// localStorage.setItem('table-players-home', jsonString);
-//SAVING HOME PLAYERS TO LOCAL STORAGE
-
 //make input first then create button
 function handleHomeInputs() {
   const addHomePlayer = document.getElementById("homeInputPlayer");
@@ -229,21 +141,6 @@ function handleHomeInputs() {
     alert("Input player's name and jersey first.")
   }
 }
-
-
-
-// const pts = 0;//document.getElementById("pts").value;
-// const threePtMade = 0;
-// const threePt = 0;
-// const twoPtMade = 0;
-// const twoPt = 0;
-// const ftMade = 0;
-// const ft = 0;
-// const assist = 0;
-// const rebound = 0;
-// const steal = 0;
-// const turnOver = 0;
-// const foul = 0;
 
 /*---------------------display table players----------------------------------------------*/
 function editTableHome() {
@@ -404,8 +301,6 @@ function Hidden(){
      hideAddPlayer()
      const buttonSavePlayers = document.getElementById('savePlayers');
      buttonSavePlayers.style.visibility="hidden";
-    //  localStorage.setItem("home out", '[]');
-    //  localStorage.setItem("away out", '[]');
   } else {
 
   }
@@ -750,64 +645,8 @@ function handleClick() {
     buttonForData.style.visibility="hidden";
 }
 
-//----link--> https://www.revisitclass.com/css/how-to-export-download-the-html-table-to-excel-using-javascript/#Example_Download_the_HTML_table_in_Excel_csv_format
-// function exportToExcel(tableID,filename=''){
-//   let downloadLink;
-//   let dataType = 'application/vnd.ms-excel';
-//   let tableSelect = document.getElementById(tableID);
-//   let tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-
-//   //specify file name
-//   filename = filename?filename+'.xls':'excel_data.xls';
-//   //create download link element
-//   downloadLink = document.createElement("a");
-//   document.body.appendChild(downloadLink);
-//   if(navigator.msSaveOrOpenBlob){
-//     let blob = new Blob(['ufeff',tableHTML],{
-//       type: dataType
-//     });
-//   } else {
-//     //create a link to the file
-//     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-//     //setting the file name
-//     downloadLink.download = filename;
-//     //triggering the function
-//     downloadLink.click();
-//   }
-// }
-
-// function exportExcelAway(tableID,filename=''){
-//   let downloadLink;
-//   let dataType = 'application/vnd.ms-excel';
-//   let tableSelect = document.getElementById(tableID);
-//   let tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-
-//   //specify file name
-//   filename = filename?filename+'.xls':'excel_data.xls';
-//   //create download link element
-//   downloadLink = document.createElement("a");
-//   document.body.appendChild(downloadLink);
-//   if(navigator.msSaveOrOpenBlob){
-//     let blob = new Blob(['ufeff',tableHTML],{
-//       type: dataType
-//     });
-//   } else {
-//     //create a link to the file
-//     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-//     //setting the file name
-//     downloadLink.download = filename;
-//     //triggering the function
-//     downloadLink.click();
-//   }
-// }
-
 document.getElementById("exportBtn").addEventListener("click", function() {
-  // Get table data
-  // let table1Data = document.getElementById("myTableHome").outerHTML;
-  // let table2Data = document.getElementById("myTableAway").outerHTML;
-  // let table3Data = document.getElementById("goalkeeperHome").outerHTML;
-  // let table4Data = document.getElementById("goalkeeperAway").outerHTML;
-
+  
   // Create a new workbook
   var workbook = XLSX.utils.book_new();
 
@@ -828,35 +667,35 @@ let divDisplay = document.getElementById("stateDisplay");
 
 // Initialize the array
 let myArrayOf = [];
-// Add an event listener to the div to detect changes
-divDisplay.addEventListener('DOMSubtreeModified', () => {
+
+// Get the container element
+const stanja = document.querySelector('#stanja');
+
+// Create a MutationObserver instance
+const observer = new MutationObserver(() => {
     // Get the updated content of the div
     const divContent = divDisplay.innerHTML;
 
     // Split the content into an array
-    const divContentArray = divContent.split(/[.]/);//
+    myArrayOf = divContent.split('.'); // Razdvaja po tački
 
-    // Update the array
-    myArrayOf = divContentArray;
+    // Loop through the array and dodaj elemente
+    myArrayOf.forEach(item => {
+      if (item.trim()) {
+          const newItemOf = document.createElement('span');
+          newItemOf.textContent = item.trim(); // Uklanja nepotrebne razmake
+          const addBr = document.createElement("br");
+          stanja.appendChild(newItemOf);
+          stanja.appendChild(addBr);
+      }
+    });
 
-    // Get the container element
-    const stanja = document.querySelector('#stanja');
-    // Get the list element
-    const lista = document.querySelector('#lista');
-
-    // Loop through the array and create a new element for each item
-    // Create a new element
-    const newItemOf = document.createElement('span');
-    const addBr = document.createElement("br");
-
-    // Set the text content of the element to the current array item
-    newItemOf.textContent = myArrayOf; //[i] ;
-
-    // Append the new element to the container
-    stanja.appendChild(newItemOf);
-    newItemOf.appendChild(addBr);
-    console.log(myArrayOf);
+    stanja.scrollTop = stanja.scrollHeight;
 });
+
+// Postavi observer da prati promjene unutar div-a
+observer.observe(divDisplay, { childList: true, subtree: true, characterData: true });
+
 
 //----------------
 function Action() {
